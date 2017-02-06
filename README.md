@@ -12,11 +12,11 @@ There are one or a few others but as far as I know they don't:
 
 It's as easy as any other Spring Boot Starter ;). Find your recipe below...
 
-#### Gradle ?
+Gradle:
 
     compile "com.moelholm:prometheus-spring-boot-starter:1.0.0-SNAPSHOT"
 
-#### Maven ?
+Maven:
 
     <dependency>
       <groupId>com.moelholm</groupId>
