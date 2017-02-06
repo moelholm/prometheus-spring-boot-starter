@@ -1,0 +1,95 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.1.RELEASE'
+        prometheusVersion = '0.0.16'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+group 'com.moelholm'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-starter-web"
+
+    compile "io.prometheus:simpleclient:${prometheusVersion}"
+    compile "io.prometheus:simpleclient_hotspot:${prometheusVersion}"
+    compile "io.prometheus:simpleclient_spring_boot:${prometheusVersion}"
+
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+
+}
+
+bootRepackage {
+    enabled = false
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+artifacts {
+    archives jar
+    archives sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            // Snapshots: https://oss.sonatype.org/content/repositories/snapshots
+            // Releases : https://oss.sonatype.org/service/local/staging/deploy/maven2/
+            repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+
+            pom.project {
+                name 'Prometheus Spring Boot Starter'
+                packaging 'jar'
+                description 'A Spring Boot Starter that enables a Prometheus endpoint for Spring Boot applications'
+                url 'https://github.com/nickymoelholm/prometheus-spring-boot-starter'
+
+                scm {
+                    url 'scm:git@github.com:nickymoelholm/prometheus-spring-boot-starter.git'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT License'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'nickymoelholm'
+                        name 'Nicky Moelholm'
+                    }
+                }
+            }
+        }
+    }
+}
