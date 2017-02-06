@@ -31,9 +31,25 @@ Maven:
       <version>1.0.1</version>
     </dependency>
 
-### Why this starter too?
+### Configuration
 
-There are one or a few others but as far as I know they don't:
-- Activate the Prometheus endpoint as a real Spring Boot Actuator endpoint
-- Exist in the official Maven repository
+You can configure 2 x properties - here shown with their default values:
 
+    endpoints.prometheus.path      = /prometheus
+    
+    endpoints.prometheus.sensitive = false
+
+Same configuration as you will find with the standard Spring Boot Actuator endpoints.
+
+### Alternatives
+
+There are other starters as well:
+
+- https://github.com/thomasdarimont/prometheus-spring-boot-starter
+- https://github.com/akaGelo/spring-boot-starter-prometheus
+
+Both actually existed at the time I started development of this starter. The first one is simple
+but lacks two things: being in the Maven Central and using Spring Boot Actuator endpoints. The second
+one is very much like this starter - but additionally comes with health indicator information as well.
+Personally I found the implementation a bit complex - contrary to Thomas' implementation. Hence this starter: 
+a kind of mashup ;)
