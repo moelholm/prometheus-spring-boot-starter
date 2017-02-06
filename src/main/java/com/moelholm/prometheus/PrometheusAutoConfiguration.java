@@ -19,7 +19,7 @@ public class PrometheusAutoConfiguration {
   @ConditionalOnMissingBean(name = "prometheusActuatorEndpoint")
   AbstractMvcEndpoint prometheusActuatorEndpoint(
       @Value("${endpoints.prometheus.path:/prometheus}") String path,
-      @Value("${endpoints.prometheus.path:false}") boolean sensitive) {
+      @Value("${endpoints.prometheus.sensitive:false}") boolean sensitive) {
     return new PrometheusActuatorEndpoint(path, sensitive);
   }
 
