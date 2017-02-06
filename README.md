@@ -21,14 +21,14 @@ It's as easy as any other Spring Boot Starter ;). Find your recipe below...
 
 Gradle:
 
-    compile "com.moelholm:prometheus-spring-boot-starter:1.0.0"
+    compile "com.moelholm:prometheus-spring-boot-starter:1.0.1"
 
 Maven:
 
     <dependency>
       <groupId>com.moelholm</groupId>
       <artifactId>prometheus-spring-boot-starter</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
     </dependency>
 
 ### Why this starter too?
