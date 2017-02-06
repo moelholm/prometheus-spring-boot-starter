@@ -46,9 +46,16 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
     classifier = 'sources'
 }
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
 artifacts {
     archives jar
     archives sourcesJar
+    archives javadocJar
 }
 
 signing {
