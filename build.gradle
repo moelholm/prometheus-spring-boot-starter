@@ -11,8 +11,6 @@ buildscript {
     }
 }
 
-apply plugin: 'maven'
-apply plugin: 'signing'
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
@@ -40,6 +38,20 @@ dependencies {
 
 bootRepackage {
     enabled = false
+}
+
+//-------------------------------------------------------------------------------------------------
+//
+// Below :: Functionality for releasing to the Maven Central
+//
+//-------------------------------------------------------------------------------------------------
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+ext {
+    sonatypeUsername = project.hasProperty('sonatypeUsername') ? sonatypeUsername : 'dummy'
+    sonatypePassword = project.hasProperty('sonatypePassword') ? sonatypePassword : 'dummy'
 }
 
 task sourcesJar(type: Jar) {
