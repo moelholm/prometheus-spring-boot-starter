@@ -71,6 +71,7 @@ artifacts {
 }
 
 signing {
+    required project.hasProperty('signing.secretKeyRingFile')
     sign configurations.archives
 }
 
