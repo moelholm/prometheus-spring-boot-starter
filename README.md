@@ -2,6 +2,8 @@
 
 This is Spring Boot Starter module for activating a Prometheus endpoint in Spring Boot applications.
 
+[![Build Status](https://travis-ci.org/nickymoelholm/prometheus-spring-boot-starter.svg?branch=master)](https://travis-ci.org/nickymoelholm/prometheus-spring-boot-starter)
+
 ### What you get
 
 A new Spring Boot Actuator endpoint - designed for Prometheus:
