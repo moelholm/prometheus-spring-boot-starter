@@ -13,9 +13,10 @@ import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-    classes = PrometheusAutoConfigurationIntegrationTests.TestConfig.class,
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    properties = "management.port=0")
+  classes = PrometheusAutoConfigurationIntegrationTests.TestConfig.class,
+  webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+  properties = "management.port=0"
+)
 public class PrometheusAutoConfigurationIntegrationTests {
 
   @Value("${local.management.port}")
@@ -28,18 +29,16 @@ public class PrometheusAutoConfigurationIntegrationTests {
     RestTemplate restTemplate = new RestTemplate();
 
     // When
-    ResponseEntity<String> entity = restTemplate
-        .getForEntity("http://localhost:{port}/prometheus", String.class, managementPort);
+    ResponseEntity<String> entity =
+        restTemplate.getForEntity(
+            "http://localhost:{port}/prometheus", String.class, managementPort);
 
     // Then
     assertThat(entity.getStatusCodeValue()).isEqualTo(200);
     assertThat(entity.getBody()).contains("# HELP heap_used heap_used");
     assertThat(entity.getBody()).contains("# TYPE heap_used gauge");
-
   }
 
   @SpringBootApplication
-  static class TestConfig {
-  }
-
+  static class TestConfig {}
 }

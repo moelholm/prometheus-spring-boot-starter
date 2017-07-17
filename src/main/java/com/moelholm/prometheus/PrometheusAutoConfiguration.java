@@ -1,6 +1,7 @@
 package com.moelholm.prometheus;
 
 import io.prometheus.client.spring.boot.SpringBootMetricsCollector;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.endpoint.PublicMetrics;
 import org.springframework.boot.actuate.endpoint.mvc.AbstractMvcEndpoint;
@@ -8,8 +9,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Collection;
 
 @Configuration
 @ConditionalOnWebApplication
@@ -30,5 +29,4 @@ public class PrometheusAutoConfiguration {
     collector.register();
     return collector;
   }
-
 }
