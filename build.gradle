@@ -11,6 +11,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.github.sherter.google-java-format' version '0.6'
+}
+
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
