@@ -2,13 +2,12 @@ package com.moelholm.prometheus;
 
 import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.exporter.common.TextFormat;
-import org.springframework.boot.actuate.endpoint.mvc.AbstractMvcEndpoint;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.io.IOException;
 import java.io.Writer;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.boot.actuate.endpoint.mvc.AbstractMvcEndpoint;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 class PrometheusActuatorEndpoint extends AbstractMvcEndpoint {
 
@@ -23,5 +22,4 @@ class PrometheusActuatorEndpoint extends AbstractMvcEndpoint {
       TextFormat.write004(writer, CollectorRegistry.defaultRegistry.metricFamilySamples());
     }
   }
-
 }
