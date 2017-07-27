@@ -1,7 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '1.5.1.RELEASE'
-        prometheusVersion = '0.0.16'
+        prometheusVersion = '0.0.25'
     }
     repositories {
         mavenCentral()
