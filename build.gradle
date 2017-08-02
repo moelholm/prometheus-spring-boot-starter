@@ -95,10 +95,10 @@ uploadArchives {
                 name 'Prometheus Spring Boot Starter'
                 packaging 'jar'
                 description 'A Spring Boot Starter that enables a Prometheus endpoint for Spring Boot applications'
-                url 'https://github.com/nickymoelholm/prometheus-spring-boot-starter'
+                url 'https://github.com/moelholm/prometheus-spring-boot-starter'
 
                 scm {
-                    url 'scm:git@github.com:nickymoelholm/prometheus-spring-boot-starter.git'
+                    url 'scm:git@github.com:moelholm/prometheus-spring-boot-starter.git'
                 }
 
                 licenses {
@@ -109,7 +109,7 @@ uploadArchives {
 
                 developers {
                     developer {
-                        id 'nickymoelholm'
+                        id 'moelholm'
                         name 'Nicky Moelholm'
                     }
                 }
