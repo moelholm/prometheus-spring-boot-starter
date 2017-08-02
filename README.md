@@ -2,7 +2,7 @@
 
 This is Spring Boot Starter module for activating a Prometheus endpoint in Spring Boot applications.
 
-[![Build Status](https://travis-ci.org/nickymoelholm/prometheus-spring-boot-starter.svg?branch=master)](https://travis-ci.org/nickymoelholm/prometheus-spring-boot-starter) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.moelholm/prometheus-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.moelholm/prometheus-spring-boot-starter)
+[![Build Status](https://travis-ci.org/moelholm/prometheus-spring-boot-starter.svg?branch=master)](https://travis-ci.org/moelholm/prometheus-spring-boot-starter) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.moelholm/prometheus-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.moelholm/prometheus-spring-boot-starter)
 
 
 ### What you get
